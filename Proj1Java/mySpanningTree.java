@@ -23,8 +23,8 @@ public class mySpanningTree {
 		// Kruskal's algorithm
 	
 		// Sort edges by ascending order of weight values
-		ArrayList<DefaultWeightedEdge> edgeSet = new ArrayList<DefaultWeightedEdge>(graph.edgeSet());
-        Iterator<DefaultWeightedEdge> edgeSetIter = edgeSet.stream().sorted(Comparator.comparingDouble(x -> graph.getEdgeWeight(x))).iterator();
+		// Iterator<DefaultWeightedEdge> edgeSet = graph.edgeSet().stream().sorted(Comparator.comparingDouble(x -> graph.getEdgeWeight(x))).iterator();
+		Iterator<DefaultWeightedEdge> edgeSet = graph.edgeSet().stream().sorted(Comparator.comparingDouble(graph::getEdgeWeight)).iterator();
 		HashSet<Integer> vertexSet = new HashSet<Integer>(graph.vertexSet());
  
 		// Initialize connected components
@@ -34,8 +34,8 @@ public class mySpanningTree {
 		}
 		
 		// For each edge...
-		while (edgeSetIter.hasNext()) {
-			DefaultWeightedEdge edge = edgeSetIter.next();
+		while (edgeSet.hasNext()) {
+			DefaultWeightedEdge edge = edgeSet.next();
 			Integer edgeTarget = connectedComponents.get(graph.getEdgeTarget(edge));
 			
 			// ...if its addition would not introduce a cycle...
