@@ -28,7 +28,7 @@ public class Main {
 			AsSubgraph<Integer, DefaultWeightedEdge> tree = mySpanningTree.computeMST(graph);
 			CheckerSpanningTree.checkSpanningTree(graph, tree);
 		}
-        /*		
+        		
         if (algorithm.equals("ShortestPath")) {
 			System.out.println("Computing ShortestPath of Graph "+graphNumber+":");
 			Graph<Integer, DefaultWeightedEdge> graph = GraphReader.readGraph("Graph"+graphNumber+".lgf");
@@ -41,7 +41,7 @@ public class Main {
 			ArrayList<Integer> path = shortestPath.constructPathToNode(endVertex);
 			CheckerPath.checkPath(graph, startVertex, endVertex, path);
         }
-		
+		/*
         if (algorithm.equals("SteinerTree")) {
         	String terminalNumber = "";
         	String output = "Computing SteinerTree of Graph "+graphNumber;
