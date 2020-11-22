@@ -29,21 +29,21 @@ public class mySpanningTree {
  
 		// Initialize connected components
 		HashMap<Integer, Integer> connectedComponents = new HashMap<>();		
-		for (int vertex: vertexSet) {
+		for (Integer vertex: vertexSet) {
 			connectedComponents.put(vertex, vertex);
 		}
 		
 		// For each edge...
 		while (edgeSet.hasNext()) {
 			DefaultWeightedEdge edge = edgeSet.next();
-			int edgeSource = connectedComponents.get(graph.getEdgeSource(edge));
-			int edgeTarget = connectedComponents.get(graph.getEdgeTarget(edge));
+			Integer edgeSource = connectedComponents.get(graph.getEdgeSource(edge));
+			Integer edgeTarget = connectedComponents.get(graph.getEdgeTarget(edge));
 
 			// ...if its addition would not introduce a cycle...
 			if (edgeSource != edgeTarget) {
 				// ...add it to the tree
 				tree.addEdge(graph.getEdgeSource(edge),graph.getEdgeTarget(edge),edge);
-				for (int vertex: vertexSet) {
+				for (Integer vertex: vertexSet) {
 					if (connectedComponents.get(vertex).equals(edgeTarget)){
 						connectedComponents.put(vertex, edgeSource);
 					}
