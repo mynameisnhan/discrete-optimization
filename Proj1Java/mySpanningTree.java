@@ -21,31 +21,32 @@ public class mySpanningTree {
 		*/
 
 		// Kruskal's algorithm
-		
-		HashSet<Integer> vertexSet = new HashSet<Integer>(graph.vertexSet());
 	
 		// Sort edges by ascending order of weight values
+		// Iterator<DefaultWeightedEdge> edgeSet = graph.edgeSet().stream().sorted(Comparator.comparingDouble(x -> graph.getEdgeWeight(x))).iterator();
 		Iterator<DefaultWeightedEdge> edgeSet = graph.edgeSet().stream().sorted(Comparator.comparingDouble(graph::getEdgeWeight)).iterator();
+		HashSet<Integer> vertexSet = new HashSet<Integer>(graph.vertexSet());
  
 		// Initialize connected components
 		HashMap<Integer, Integer> connectedComponents = new HashMap<>();		
-		for (Integer vertex: vertexSet) {
+		for (Integer vertex : vertexSet) {
 			connectedComponents.put(vertex, vertex);
 		}
 		
 		// For each edge...
 		while (edgeSet.hasNext()) {
 			DefaultWeightedEdge edge = edgeSet.next();
-			Integer edgeSource = connectedComponents.get(graph.getEdgeSource(edge));
 			Integer edgeTarget = connectedComponents.get(graph.getEdgeTarget(edge));
-
+			
 			// ...if its addition would not introduce a cycle...
-			if (edgeSource != edgeTarget) {
+			if (!connectedComponents.get(graph.getEdgeSource(edge)).equals(edgeTarget)) {
+
 				// ...add it to the tree
-				tree.addEdge(graph.getEdgeSource(edge),graph.getEdgeTarget(edge),edge);
-				for (Integer vertex: vertexSet) {
-					if (connectedComponents.get(vertex).equals(edgeTarget)){
-						connectedComponents.put(vertex, edgeSource);
+				tree.addEdge(graph.getEdgeSource(edge), graph.getEdgeTarget(edge), edge);
+
+				for (Integer vertex : vertexSet) {
+					if (connectedComponents.get(vertex).equals(edgeTarget)) {
+						connectedComponents.put(vertex, connectedComponents.get(graph.getEdgeSource(edge)));
 					}
 				}		
 			}
@@ -59,5 +60,4 @@ public class mySpanningTree {
 
 		return tree;
 	}
-
 }

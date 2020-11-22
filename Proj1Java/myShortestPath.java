@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet; // OUR CODE
 import java.util.stream.Collectors; // OUR CODE
-import java.util.stream.Stream; // OUR CODE
+
 
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultWeightedEdge;
@@ -38,40 +37,45 @@ public class myShortestPath {
 		* START OF OUR CODE
 		*
 		*/
-/*
+
 		// Dijkstra's algorithm
 		HashMap<Integer, Boolean> visited = new HashMap<>();
 
 		// Fer each vertex...
-		for (Integer vertex: graph.vertexSet()) {
+		for (Integer vertex : graph.vertexSet()) {
 			distances.put(vertex, Double.MAX_VALUE); // ...set distance to infinity
 			predecessors.put(vertex, null); // ...set prev to null
 			visited.put(vertex, Boolean.FALSE);
 		}
 
 		// Set start vertex's distance to 0
-		distances.put(startVertex, 0.);
+		distances.put(startVertex, 0.000);
 		visited.put(startVertex, Boolean.TRUE);
 
 		// Update all neighbours of start vertex
-		graph.vertexSet().stream().filter(x -> graph.containsEdge(startVertex, x)).filter(x -> visited.get(x) == Boolean.FALSE).forEach(x -> updateVertexDistance(startVertex,x));
+		// graph.vertexSet().stream().filter(x -> graph.containsEdge(startVertex, x)).filter(x -> visited.get(x) == Boolean.FALSE).forEach(x -> updateVertexDistance(startVertex,x));
+		graph.vertexSet().stream().filter(x -> graph.containsEdge(startVertex, x)).filter(x -> visited.get(x).equals(Boolean.FALSE))
+		.forEach(x -> updateVertexDistance(startVertex, x));
 
 		// For each vertex...
-		for (Integer vertex: graph.vertexSet()) {
-			//Determine if there are any reachable (non infinite distance) non-added vertices
+		for (Integer vertex : graph.vertexSet()) {
+
+			// Determine if there are any reachable (non infinite distance) non-added vertices
 			if (distances.entrySet().stream().anyMatch(x -> visited.get(x.getKey())==Boolean.FALSE && x.getValue()!=Double.MAX_VALUE)) {
-				//Get vertex,distance pair with minimum distance
+			
+				// Get vertex,distance pair with minimum distance
 				HashMap.Entry<Integer, Double> min = Collections.min(distances.entrySet().stream()
 				.filter(x -> visited.get(x.getKey()) == Boolean.FALSE).collect(Collectors.toList()), HashMap.Entry.comparingByValue());
 				
-				//Set the minimum vertex to added
+				// Set the minimum vertex to added
 				visited.put(min.getKey(), Boolean.TRUE);
-				//Update all neighbouring non-added vertices
+			
+				// Update all neighbouring non-added vertices
 				graph.vertexSet().stream().filter(x -> graph.containsEdge(min.getKey(), x))
 				.filter(x -> visited.get(x) == Boolean.FALSE).forEach(x -> updateVertexDistance(min.getKey(), x));
 			}
 			
-			else {
+			else {	
 				break;
 			}
 		}
@@ -81,47 +85,7 @@ public class myShortestPath {
 		* END OF OUR CODE
 		*
 		*/
-//	}
-	
-HashSet<Integer> T = new HashSet<>();
-T.addAll(graph.vertexSet());
-while(T.size() != 0){
-	//1st step get i=argmin{D(j):j is in T}
-	double i=Double.MAX_VALUE;
-	Integer v_i=0;
-	for (Integer v : T) {
-		if(distances.get(v) < i){
-			i= distances.get(v);
-			v_i = v;
-		}
 	}
-	//update D
-	T.remove(v_i);
-	HashSet<DefaultWeightedEdge> i_incomingEdges = new HashSet<>();
-	i_incomingEdges.addAll(graph.incomingEdgesOf(v_i));
-	for (DefaultWeightedEdge a : i_incomingEdges) {
-		int source = graph.getEdgeSource(a);
-		int target = graph.getEdgeTarget(a);
-		if(source == v_i){
-			if(distances.get(v_i) + graph.getEdgeWeight(a) < distances.get(target)){
-				distances.put(target, distances.get(v_i) + graph.getEdgeWeight(a));
-				predecessors.put(target, v_i);
-				// System.out.println("aaaa"+distances.get(target));
-			}
-		}
-		else{
-			if(distances.get(v_i) + graph.getEdgeWeight(a) < distances.get(source)){
-				distances.put(source, distances.get(v_i) + graph.getEdgeWeight(a));
-				predecessors.put(source, v_i);
-				// System.out.println("aaaa"+distances.get(target));
-			}
-		}
-	}}
-}
-
-
-
-
 
 	private void updateVertexDistance(Integer source, Integer target){
 		if(distances.get(source) + graph.getEdgeWeight(graph.getEdge(source,target)) < distances.get(target)){
