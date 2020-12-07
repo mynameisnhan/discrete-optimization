@@ -41,7 +41,7 @@ public class Main {
 			ArrayList<Integer> path = shortestPath.constructPathToNode(endVertex);
 			CheckerPath.checkPath(graph, startVertex, endVertex, path);
         }
-		/*
+		
         if (algorithm.equals("SteinerTree")) {
         	String terminalNumber = "";
         	String output = "Computing SteinerTree of Graph "+graphNumber;
@@ -61,7 +61,7 @@ public class Main {
 			HashSet<Integer> terminals = GraphReader.readTerminals("Graph"+graphNumber+"_Terminals"+terminalNumber+".txt");
 			AsSubgraph<Integer, DefaultWeightedEdge> steinerTree = mySteinerTree.computeSteinerTree(graph, terminals);
 			CheckerSteinerTree.checkSteinerTree(steinerTree, terminals);
-		}*/
+		}
         reader.close();
 	}
 }
