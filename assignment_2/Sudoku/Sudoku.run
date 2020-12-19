@@ -1,7 +1,16 @@
 model Sudoku.mod
-data Sudoku9.dat
+data Sudoku16.dat
+param y {(i,j) in {(1..size) cross (1..size)}};
 
 option solver "./cplex";
 option cplex_options "mipinterval=10 mipdisplay=5 timelimit=3600";
 
 solve;
+
+for {i in 1..size} 
+   for {j in 1..size} 
+   		for {k in 1..size} 
+   			if x[i,j,k] = 1 then let y[i,j]:=k;
+
+display fixedValues;
+display y;
