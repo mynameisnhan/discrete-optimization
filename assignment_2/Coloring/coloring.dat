@@ -1,0 +1,116 @@
+set COUNTRIES :=
+Germany
+Denmark
+Poland
+Lithuania
+Russia
+Belarus
+CzechRepublic
+Slovakia
+Ukraine
+Austria
+Hungary
+Moldova
+Slovenia
+Croatia
+Romania
+BosniaAndHerzegovina
+Serbia
+Bulgaria
+Montenegro
+Albania
+Macedonia
+Greece
+Turkey
+Italy
+Switzerland
+Luxemburg
+Belgium
+Netherlands
+UK
+Ireland
+France
+Spain
+Portugal
+;
+
+
+set BORDERS :=
+Germany Denmark
+Germany Poland
+Germany CzechRepublic
+Germany Austria
+Germany Switzerland
+Germany France
+Germany Luxemburg
+Germany Belgium
+Germany Netherlands
+Poland Lithuania
+Poland Russia
+Poland Belarus
+Poland Ukraine
+Poland Slovakia
+Poland CzechRepublic
+Lithuania Russia
+Lithuania Belarus
+Russia Belarus
+Russia Ukraine
+Belarus Ukraine
+CzechRepublic Slovakia
+CzechRepublic Austria
+Slovakia Austria
+Slovakia Hungary
+Slovakia Ukraine
+Ukraine Hungary
+Ukraine Romania
+Ukraine Moldova
+Austria Switzerland
+Austria Hungary
+Austria Slovenia
+Hungary Slovenia
+Hungary Croatia
+Hungary Romania
+Hungary Serbia
+Moldova Romania
+Slovenia Croatia
+Slovenia Italy
+Croatia BosniaAndHerzegovina
+Croatia Serbia
+Romania Serbia
+Romania Bulgaria
+BosniaAndHerzegovina Serbia
+BosniaAndHerzegovina Montenegro
+Serbia Montenegro
+Serbia Bulgaria
+Serbia Macedonia
+Bulgaria Macedonia
+Bulgaria Greece
+Bulgaria Turkey
+Montenegro Albania
+Albania Macedonia
+Albania Greece
+Macedonia Greece
+Greece Turkey
+Italy Switzerland
+Italy France
+Switzerland France
+Luxemburg France
+Luxemburg Belgium
+Belgium Netherlands
+Belgium UK
+Belgium France
+Netherlands UK
+UK France
+UK Ireland
+France Spain
+Spain Portugal
+;
+
+
+set COLORS :=
+1
+2
+3
+4
+5
+;
