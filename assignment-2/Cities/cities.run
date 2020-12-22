@@ -6,4 +6,4 @@ option cplex_options "mipinterval=10 mipdisplay=5 timelimit=3600";
 
 solve;
 
-display x;
+display {i in cities,j in cities: pair[i,j]>0};

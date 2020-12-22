@@ -1,9 +1,9 @@
 model Knapsack.mod
-data Knapsack1.dat
+data Knapsack2.dat
 
 option solver "./cplex";
 option cplex_options "mipinterval=10 mipdisplay=5 timelimit=3600";
 
 solve;
 
-display x;
+display selection;

@@ -1,0 +1,90 @@
+CPLEX 12.10.0.0: mipinterval=10
+mipdisplay=5
+timelimit=3600
+Found incumbent of value 5.000000 after 0.02 sec. (0.04 ticks)
+MIP Presolve eliminated 335 rows and 0 columns.
+MIP Presolve modified 170 coefficients.
+Reduced MIP has 203 rows, 170 columns, and 830 nonzeros.
+Reduced MIP has 170 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Probing time = 0.00 sec. (0.14 ticks)
+Detecting symmetries...
+Reduced MIP has 203 rows, 170 columns, and 830 nonzeros.
+Reduced MIP has 170 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Probing time = 0.00 sec. (0.14 ticks)
+Clique table members: 203.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 12 threads.
+Parallel mode: deterministic, using up to 2 threads for parallel tasks at root LP.
+Root relaxation solution time = 0.03 sec. (1.87 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            5.0000        0.0000           100.00%
+Found incumbent of value 5.000000 after 0.09 sec. (4.22 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            4.0000        0.0000           100.00%
+Found incumbent of value 4.000000 after 0.09 sec. (4.23 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0        cutoff              4.0000        4.0000      162    0.00%
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0        cutoff              4.0000        4.0000      162    0.00%
+Elapsed time = 0.09 sec. (4.36 ticks, tree = 0.01 MB)
+
+Root node processing (before b&c):
+  Real time             =    0.09 sec. (4.36 ticks)
+Parallel b&c, 12 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.09 sec. (4.36 ticks)
+CPLEX 12.10.0.0: optimal integer solution; objective 4
+162 MIP simplex iterations
+0 branch-and-bound nodes
+x [*,*]
+:                      1   2   3   4   5    :=
+Albania                1   0   0   0   0
+Austria                0   1   0   0   0
+Belarus                1   0   0   0   0
+Belgium                1   0   0   0   0
+BosniaAndHerzegovina   1   0   0   0   0
+Bulgaria               1   0   0   0   0
+Croatia                0   0   0   1   0
+CzechRepublic          1   0   0   0   0
+Denmark                0   0   0   1   0
+France                 0   1   0   0   0
+Germany                0   0   0   0   1
+Greece                 0   1   0   0   0
+Hungary                1   0   0   0   0
+Ireland                0   0   0   1   0
+Italy                  1   0   0   0   0
+Lithuania              0   0   0   1   0
+Luxemburg              0   0   0   1   0
+Macedonia              0   0   0   1   0
+Moldova                0   0   0   0   1
+Montenegro             0   0   0   1   0
+Netherlands            0   0   0   1   0
+Poland                 0   1   0   0   0
+Portugal               1   0   0   0   0
+Romania                0   1   0   0   0
+Russia                 0   0   0   0   1
+Serbia                 0   0   0   0   1
+Slovakia               0   0   0   0   1
+Slovenia               0   0   0   0   1
+Spain                  0   0   0   1   0
+Switzerland            0   0   0   1   0
+Turkey                 0   0   0   1   0
+UK                     0   0   0   0   1
+Ukraine                0   0   0   1   0
+;
